@@ -1,4 +1,4 @@
-import { postRouter } from "~/lib/api/routers/post";
+import { postRouter } from "~/lib/api/trpc/routers/post";
 import { createCallerFactory, createTRPCRouter } from "~/lib/api/trpc";
 
 /**
