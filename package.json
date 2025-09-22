@@ -12,7 +12,7 @@
 		"db:push": "prisma db push",
 		"db:reset": "prisma db push --force-reset",
 		"db:dev": "prisma studio --browser none",
-		"db:dev:init": "cd .dev && docker compose up -d",
+		"db:dev:init": "cd scripts && docker compose up -d",
 		"postinstall": "prisma generate --no-hints",
 		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdc,json}\""
 	},
