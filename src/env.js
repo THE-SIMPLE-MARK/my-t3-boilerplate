@@ -3,6 +3,9 @@ import { z } from "zod"
 
 const env = createEnv({
 	shared: {
+		NODE_ENV: z
+			.enum(["development", "test", "production"])
+			.default("development"),
 		VERCEL_URL: z.string().optional(),
 	},
 	/**
@@ -11,9 +14,6 @@ const env = createEnv({
 	 */
 	server: {
 		DATABASE_URL: z.string().url(),
-		NODE_ENV: z
-			.enum(["development", "test", "production"])
-			.default("development"),
 	},
 
 	/**
