@@ -8,14 +8,14 @@
 		"start": "next start",
 		"start:dev": "NODE_OPTIONS=\"--no-deprecation\" SKIP_ENV_VALIDATION=true VERCEL_URL=localhost:3000 next start",
 		"lint": "TIMING=1 eslint . --ext .js,.jsx,.ts,.tsx",
+		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdc,json}\"",
 		"db:gen": "prisma generate --no-hints",
 		"db:gen:watch": "prisma generate --no-hints --watch",
 		"db:push": "prisma db push",
 		"db:reset": "prisma db push --force-reset",
 		"db:dev": "prisma studio --browser none",
 		"db:dev:init": "cd scripts && docker compose up -d",
-		"postinstall": "prisma generate --no-hints",
-		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdc,json}\""
+		"postinstall": "prisma generate --no-hints"
 	},
 	"dependencies": {
 		"@prisma/client": "^6.5.0",
