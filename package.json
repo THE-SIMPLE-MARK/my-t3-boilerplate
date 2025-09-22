@@ -1,10 +1,10 @@
 {
-  "name": "inferno-barbershop",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "start": "next start",
+	"name": "inferno-barbershop",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"start": "next start",
 		"start:dev": "NODE_OPTIONS=\"--no-deprecation\" SKIP_ENV_VALIDATION=true VERCEL_URL=localhost:3000 next start",
 		"lint": "TIMING=1 eslint . --ext .js,.jsx,.ts,.tsx",
 		"db:gen": "prisma generate --no-hints",
@@ -13,41 +13,42 @@
 		"db:reset": "prisma db push --force-reset",
 		"db:dev": "prisma studio --browser none",
 		"db:dev:init": "cd .dev && docker compose up -d",
-    "postinstall": "prisma generate --no-hints"
-  },
-  "dependencies": {
-    "@prisma/client": "^6.5.0",
-    "@t3-oss/env-nextjs": "^0.12.0",
-    "@tanstack/react-query": "^5.69.0",
-    "@trpc/client": "^11.0.0",
-    "@trpc/react-query": "^11.0.0",
-    "@trpc/server": "^11.0.0",
-    "@trpc/tanstack-react-query": "^11.5.1",
-    "next": "^15.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "server-only": "^0.0.1",
-    "superjson": "^2.2.1",
-    "zod": "^3.24.2"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.0.15",
-    "@types/node": "^20.14.10",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "eslint": "^9.23.0",
-    "eslint-config-next": "^15.2.3",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "prisma": "^6.5.0",
-    "tailwindcss": "^4.0.15",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.27.0"
-  },
-  "ct3aMetadata": {
-    "initVersion": "7.39.3"
-  },
-  "packageManager": "pnpm@10.15.1"
+		"postinstall": "prisma generate --no-hints",
+		"format": "prettier --write \"**/*.{js,ts,tsx,md,mdc,json}\""
+	},
+	"dependencies": {
+		"@prisma/client": "^6.5.0",
+		"@t3-oss/env-nextjs": "^0.12.0",
+		"@tanstack/react-query": "^5.69.0",
+		"@trpc/client": "^11.0.0",
+		"@trpc/react-query": "^11.0.0",
+		"@trpc/server": "^11.0.0",
+		"@trpc/tanstack-react-query": "^11.5.1",
+		"next": "^15.2.3",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"server-only": "^0.0.1",
+		"superjson": "^2.2.1",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3.3.1",
+		"@tailwindcss/postcss": "^4.0.15",
+		"@types/node": "^20.14.10",
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"eslint": "^9.23.0",
+		"eslint-config-next": "^15.2.3",
+		"postcss": "^8.5.3",
+		"prettier": "^3.5.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"prisma": "^6.5.0",
+		"tailwindcss": "^4.0.15",
+		"typescript": "^5.8.2",
+		"typescript-eslint": "^8.27.0"
+	},
+	"ct3aMetadata": {
+		"initVersion": "7.39.3"
+	},
+	"packageManager": "pnpm@10.15.1"
 }
