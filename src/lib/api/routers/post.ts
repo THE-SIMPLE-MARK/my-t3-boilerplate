@@ -1,6 +1,8 @@
 import { z } from "zod";
 
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter } from "~/lib/api/trpc";
+import { publicProcedure } from "~/lib/api/trpc/procedures/public";
+import prisma from "~/lib/api/prisma";
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure
@@ -13,16 +15,16 @@ export const postRouter = createTRPCRouter({
 
   create: publicProcedure
     .input(z.object({ name: z.string().min(1) }))
-    .mutation(async ({ ctx, input }) => {
-      return ctx.db.post.create({
+    .mutation(async ({ input }) => {
+      return prisma.post.create({
         data: {
           name: input.name,
         },
       });
     }),
 
-  getLatest: publicProcedure.query(async ({ ctx }) => {
-    const post = await ctx.db.post.findFirst({
+  getLatest: publicProcedure.query(async () => {
+    const post = await prisma.post.findFirst({
       orderBy: { createdAt: "desc" },
     });
 
