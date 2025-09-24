@@ -1,41 +1,52 @@
-# Create T3 App
+# My T3 Boilerplate
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with
-`create-t3-app`.
+This is is a template repository for my new projects. It is basically a copy of the outputs of [Create T3 App](https://create.t3.gg/) with my own file structure, naming conventions, etc.
 
-## What's next? How do I make an app with this?
+## Running & Building
 
-We try to keep this project as simple as possible, so you can start with just
-the scaffolding we set up for you, and add additional things later when they
-become necessary.
+### Prerequisites
 
-If you are not familiar with the different technologies used in this project,
-please refer to the respective docs. If you still are in the wind, please join
-our [Discord](https://t3.gg/discord) and ask for help.
+- Node.js (v22.x)
+- pnpm (v10.x)
+- Docker
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Database setup
 
-## Learn More
+1. Initialize the database
+```bash
+pnpm db:dev:init # creates a postgres docker container for the db
+```
+2. Push schema to the (empty) database
+```bash
+pnpm db:push # pushes the schema to the db
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the
-following resources:
+### Development mode
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available)
-  — Check out these awesome tutorials
+Follow the database setup instructions above.
 
-You can check out the
-[create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) —
-your feedback and contributions are welcome!
+1. Start the development server
+```bash
+pnpm dev # starts the dev server for the website (builds pages as needed => slow)
+```
 
-## How do I deploy this?
+### Production mode
 
-Follow our deployment guides for
-[Vercel](https://create.t3.gg/en/deployment/vercel),
-[Netlify](https://create.t3.gg/en/deployment/netlify) and
-[Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Follow the database setup instructions above.
+
+1. Build the production server
+```bash
+pnpm build # builds the website in an optimized manner for prod
+```
+2. Start the production server
+```bash
+pnpm start # starts the built bundle
+```
+
+## Tech stack
+
+| Name       | Purpose                                                                                      | Docs                      |
+| ---------- | -------------------------------------------------------------------------------------------- | ------------------------- |
+| Next.js    | An all-in-one framework, basically Node.js or equivelent JS runtime + React on the frontend. | https://nextjs.org/       |
+| Prisma ORM | An end-to-end typesafe ORM.                                                                  | https://www.prisma.io/orm |
+| tRPC       | An end-to-end typesafe API helper library.                                                   | https://trpc.io/          |
