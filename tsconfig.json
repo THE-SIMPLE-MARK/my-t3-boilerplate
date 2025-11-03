@@ -15,7 +15,11 @@
 		"checkJs": true,
 		"allowArbitraryExtensions": true,
 		/* Bundled projects */
-		"lib": ["dom", "dom.iterable", "ES2022"],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"ES2022"
+		],
 		"noEmit": true,
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
@@ -27,11 +31,17 @@
 		],
 		"incremental": true,
 		/* Path Aliases */
-		"baseUrl": ".",
+		"baseUrl": "./",
 		"paths": {
-			"~/*": ["./src/*"],
-			"@db": ["./src/lib/api/prisma/generated"],
-			"@db/types": ["./src/lib/api/prisma/types"]
+			"~/*": [
+				"./src/*"
+			],
+			"@db": [
+				"./prisma-generated"
+			],
+			"@db/types": [
+				"./src/lib/api/prisma/types.ts"
+			]
 		}
 	},
 	"include": [
@@ -41,5 +51,8 @@
 		"**/*.js",
 		".next/types/**/*.ts"
 	],
-	"exclude": ["node_modules", "src/lib/api/prisma/generated/**"]
+	"exclude": [
+		"node_modules",
+		"prisma-generated/**"
+	]
 }

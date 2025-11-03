@@ -1,6 +1,6 @@
 import "server-only"
 
-import { PrismaClient } from "./generated/client"
+import { PrismaClient } from "prisma-generated/client"
 import env from "~/env"
 
 function createPrismaClient() {
