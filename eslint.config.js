@@ -1,15 +1,33 @@
-import { FlatCompat } from "@eslint/eslintrc"
+import eslint from "@eslint/js"
+import nextPlugin from "@next/eslint-plugin-next"
+import reactHooksPlugin from "eslint-plugin-react-hooks"
 import tseslint from "typescript-eslint"
-
-const compat = new FlatCompat({
-	baseDirectory: import.meta.dirname,
-})
 
 export default tseslint.config(
 	{
-		ignores: [".next", "prisma-generated/**"],
+		ignores: [
+			".next/**",
+			"prisma-generated/**",
+			"node_modules/**",
+			"next-env.d.ts",
+		],
 	},
-	...compat.extends("next/core-web-vitals"),
+	// base js config for all files
+	{
+		files: ["**/*.js", "**/*.jsx"],
+		...eslint.configs.recommended,
+		plugins: {
+			"react-hooks": reactHooksPlugin,
+			"@next/next": nextPlugin,
+		},
+		rules: {
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+			"@next/next/no-html-link-for-pages": "error",
+			"@next/next/no-sync-scripts": "error",
+		},
+	},
+	// ts config for ts/tsx files
 	{
 		files: ["**/*.ts", "**/*.tsx"],
 		extends: [
@@ -17,7 +35,15 @@ export default tseslint.config(
 			...tseslint.configs.recommendedTypeChecked,
 			...tseslint.configs.stylisticTypeChecked,
 		],
+		plugins: {
+			"react-hooks": reactHooksPlugin,
+			"@next/next": nextPlugin,
+		},
 		rules: {
+			"react-hooks/rules-of-hooks": "error",
+			"react-hooks/exhaustive-deps": "warn",
+			"@next/next/no-html-link-for-pages": "error",
+			"@next/next/no-sync-scripts": "error",
 			"@typescript-eslint/array-type": "off",
 			"@typescript-eslint/consistent-type-definitions": "off",
 			"@typescript-eslint/consistent-type-imports": [
@@ -33,16 +59,15 @@ export default tseslint.config(
 				"error",
 				{ checksVoidReturn: { attributes: false } },
 			],
-		},
-	},
-	{
-		linterOptions: {
-			reportUnusedDisableDirectives: true,
+			"func-style": ["error", "declaration", { allowArrowFunctions: false }],
 		},
 		languageOptions: {
 			parserOptions: {
 				projectService: true,
 			},
+		},
+		linterOptions: {
+			reportUnusedDisableDirectives: true,
 		},
 	}
 )
