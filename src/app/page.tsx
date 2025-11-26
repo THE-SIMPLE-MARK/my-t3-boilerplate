@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { LatestPost } from "~/components/post"
 import { api, getQueryClient } from "~/lib/api/trpc/server"
-import { prefetch, HydrateClient } from "~/lib/api/trpc/utils/prefetch"
+import { HydrateClient, prefetch } from "~/lib/api/trpc/utils/prefetch"
 
 export default async function Home() {
 	const queryClient = getQueryClient()
