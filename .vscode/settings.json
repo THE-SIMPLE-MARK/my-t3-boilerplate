@@ -7,20 +7,20 @@
 	// typescript
 	"typescript.tsserver.experimental.enableProjectDiagnostics": true, // project-wide type checking
 	"typescript.tsdk": "node_modules/typescript/lib",
-	// eslint
-	"eslint.lintTask.enable": true, // project-wide linting on startup
-	"eslint.options": {
-		"overrideConfigFile": "eslint.config.js"
-	},
 	// formatting
-	"prettier.enable": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"biome.enabled": true,
+	"editor.defaultFormatter": "biomejs.biome",
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
-	"prettier.configPath": "prettier.config.js",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
 	"[prisma]": {
-		"editor.defaultFormatter": "Prisma.prisma",
-		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "Prisma.prisma"
 	},
 	// better-comments
 	"better-comments.tags": [
@@ -121,5 +121,5 @@
 			"italic": false,
 			"multiline": true
 		}
-	],
+	]
 }
