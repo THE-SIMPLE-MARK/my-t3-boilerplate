@@ -9,7 +9,7 @@ export function getBaseURL() {
 
 	if (isProd && !isHostedOnVercel)
 		throw new Error(
-			"Hosting on non-vercel infra is not supported due to vercel-specific env variables being used."
+			"Hosting on non-vercel infra is not supported due to vercel-specific env variables being used.",
 		)
 
 	if (isHostedOnVercel) return `https://${env.VERCEL_URL}`

@@ -15,7 +15,7 @@ export function LatestPost() {
 			onSuccess: () => {
 				void queryClient.invalidateQueries(api.post.getLatest.queryFilter())
 			},
-		})
+		}),
 	)
 
 	return (

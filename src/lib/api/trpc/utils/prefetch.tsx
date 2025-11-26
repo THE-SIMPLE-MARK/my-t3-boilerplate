@@ -1,8 +1,8 @@
 import "server-only"
 
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
 import type { TRPCQueryOptions } from "@trpc/tanstack-react-query"
 import { getQueryClient } from "~/lib/api/trpc/server"
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
 
 /**
  * Prefetch a query in an RSC.
@@ -18,9 +18,9 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
  * @param queryOptions
  */
 // this is how it is in the tRPC docs
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// biome-ignore lint/suspicious/noExplicitAny: this is how it is in the tRPC docs
 export async function prefetch<T extends ReturnType<TRPCQueryOptions<any>>>(
-	queryOptions: T
+	queryOptions: T,
 ) {
 	const queryClient = getQueryClient()
 	if (queryOptions.queryKey?.[1]?.type === "infinite") {

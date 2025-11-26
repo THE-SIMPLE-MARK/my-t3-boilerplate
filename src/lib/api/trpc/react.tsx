@@ -1,24 +1,24 @@
 "use client"
 
 import { type QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { loggerLink, httpBatchLink, createTRPCClient } from "@trpc/client"
+import { createTRPCClient, httpBatchLink, loggerLink } from "@trpc/client"
+import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server"
 import { createTRPCContext } from "@trpc/tanstack-react-query"
-import { type inferRouterInputs, type inferRouterOutputs } from "@trpc/server"
-import { useState, type ReactNode } from "react"
+import { type ReactNode, useState } from "react"
 import SuperJSON from "superjson"
-import { type AppRouter } from "~/lib/api/trpc/root"
-import { createQueryClient } from "./utils/queryClientFactory"
 import { getBaseURL } from "~/data/baseURL"
 import env from "~/env"
+import type { AppRouter } from "~/lib/api/trpc/root"
+import { createQueryClient } from "./utils/queryClientFactory"
 
-let clientQueryClientSingleton: QueryClient | undefined = undefined
+let clientQueryClientSingleton: QueryClient | undefined
 function getQueryClient() {
 	if (typeof window === "undefined") {
 		// server: always make a new query client
 		return createQueryClient()
 	}
 	// browser: use singleton pattern to keep the same query client
-	return (clientQueryClientSingleton ??= createQueryClient())
+	return clientQueryClientSingleton ?? createQueryClient()
 }
 
 export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>()
@@ -50,7 +50,7 @@ export function TRPCReactProvider(props: { children: Readonly<ReactNode> }) {
 				}),
 				httpBatchLink({
 					transformer: SuperJSON,
-					url: getBaseURL() + "/api/trpc",
+					url: `${getBaseURL()}/api/trpc`,
 					headers: () => {
 						const headers = new Headers()
 						headers.set("x-trpc-source", "nextjs-react")
@@ -58,7 +58,7 @@ export function TRPCReactProvider(props: { children: Readonly<ReactNode> }) {
 					},
 				}),
 			],
-		})
+		}),
 	)
 
 	return (

@@ -65,10 +65,7 @@
 			"multiline": true
 		},
 		{
-			"tag": [
-				"todo",
-				"to-do"
-			],
+			"tag": ["todo", "to-do"],
 			"color": "#FF8C00",
 			"strikethrough": false,
 			"underline": false,
@@ -108,11 +105,7 @@
 			"multiline": true
 		},
 		{
-			"tag": [
-				"fixme",
-				"fix-me",
-				"fix"
-			],
+			"tag": ["fixme", "fix-me", "fix"],
 			"color": "#FD79A8",
 			"strikethrough": false,
 			"underline": false,

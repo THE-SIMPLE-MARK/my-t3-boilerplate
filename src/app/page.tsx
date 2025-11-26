@@ -6,9 +6,7 @@ import { prefetch, HydrateClient } from "~/lib/api/trpc/utils/prefetch"
 
 export default async function Home() {
 	const queryClient = getQueryClient()
-	await prefetch(
-		api.post.hello.queryOptions({ text: "from tRPC" }),
-	)
+	await prefetch(api.post.hello.queryOptions({ text: "from tRPC" }))
 	const hello = queryClient.getQueryData(
 		api.post.hello.queryKey({ text: "from tRPC" }),
 	)
