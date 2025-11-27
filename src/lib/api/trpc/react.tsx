@@ -17,8 +17,10 @@ function getQueryClient() {
 		// server: always make a new query client
 		return createQueryClient()
 	}
+
 	// browser: use singleton pattern to keep the same query client
-	return clientQueryClientSingleton ?? createQueryClient()
+	clientQueryClientSingleton ??= createQueryClient()
+	return clientQueryClientSingleton
 }
 
 export const { TRPCProvider, useTRPC } = createTRPCContext<AppRouter>()
