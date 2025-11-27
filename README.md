@@ -6,7 +6,7 @@ This is is a template repository for my new projects. It is basically a copy of 
 
 ### Prerequisites
 
-- Node.js (v22.x)
+- Bun (v1.x)
 - pnpm (v10.x)
 - Docker
 
