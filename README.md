@@ -45,8 +45,8 @@ pnpm start # starts the built bundle
 
 ## Tech stack
 
-| Name       | Purpose                                                                                      | Docs                      |
-| ---------- | -------------------------------------------------------------------------------------------- | ------------------------- |
-| Next.js    | An all-in-one framework, basically Node.js or equivelent JS runtime + React on the frontend. | https://nextjs.org/       |
-| Prisma ORM | An end-to-end typesafe ORM.                                                                  | https://www.prisma.io/orm |
-| tRPC       | An end-to-end typesafe API helper library.                                                   | https://trpc.io/          |
+| Name        | Purpose                                                                                      | Docs                      |
+| ----------- | -------------------------------------------------------------------------------------------- | ------------------------- |
+| Next.js     | An all-in-one framework, basically Node.js or equivelent JS runtime + React on the frontend. | https://nextjs.org/       |
+| Drizzle ORM | A type-safe SQL ORM for TypeScript with zero-overhead abstractions.                          | https://orm.drizzle.team/ |
+| tRPC        | An end-to-end typesafe API helper library.                                                   | https://trpc.io/          |

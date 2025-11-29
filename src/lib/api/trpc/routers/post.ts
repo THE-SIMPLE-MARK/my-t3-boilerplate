@@ -1,8 +1,9 @@
+import { desc } from "drizzle-orm"
 import { z } from "zod"
-
+import { db } from "~/lib/api/db"
+import { posts } from "~/lib/api/db/schema"
 import { createTRPCRouter } from "~/lib/api/trpc"
 import { publicProcedure } from "~/lib/api/trpc/procedures/public"
-import prisma from "~/lib/api/prisma"
 
 export const postRouter = createTRPCRouter({
 	hello: publicProcedure
@@ -16,18 +17,19 @@ export const postRouter = createTRPCRouter({
 	create: publicProcedure
 		.input(z.object({ name: z.string().min(1) }))
 		.mutation(async ({ input }) => {
-			return prisma.post.create({
-				data: {
-					name: input.name,
-				},
-			})
+			const newPosts = await db
+				.insert(posts)
+				.values({ name: input.name })
+				.returning()
+
+			return newPosts[0]
 		}),
 
 	getLatest: publicProcedure.query(async () => {
-		const post = await prisma.post.findFirst({
-			orderBy: { createdAt: "desc" },
+		const latestPost = await db.query.posts.findFirst({
+			orderBy: desc(posts.createdAt),
 		})
 
-		return post ?? null
+		return latestPost ?? null
 	}),
 })
