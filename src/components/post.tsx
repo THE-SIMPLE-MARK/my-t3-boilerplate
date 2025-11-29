@@ -2,7 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
-import { useTRPC } from "~/lib/api/trpc/react"
+import { useTRPC } from "~/lib/trpc/react"
 
 export function LatestPost() {
 	const api = useTRPC()

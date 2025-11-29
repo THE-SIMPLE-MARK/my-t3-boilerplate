@@ -1,4 +1,4 @@
-import { t } from "~/lib/api/trpc"
+import { t } from "~/lib/trpc"
 
 /**
  * Middleware for timing procedure execution and adding an artificial delay in development.

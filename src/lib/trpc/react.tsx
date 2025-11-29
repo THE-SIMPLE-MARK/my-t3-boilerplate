@@ -8,7 +8,7 @@ import { type ReactNode, useState } from "react"
 import SuperJSON from "superjson"
 import { getBaseURL } from "~/data/baseURL"
 import env from "~/env"
-import type { AppRouter } from "~/lib/api/trpc/root"
+import type { AppRouter } from "~/lib/trpc/root"
 import { createQueryClient } from "./utils/queryClientFactory"
 
 let clientQueryClientSingleton: QueryClient | undefined

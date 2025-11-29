@@ -2,7 +2,7 @@ import "server-only"
 
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
 import type { TRPCQueryOptions } from "@trpc/tanstack-react-query"
-import { getQueryClient } from "~/lib/api/trpc/server"
+import { getQueryClient } from "~/lib/trpc/server"
 
 /**
  * Prefetch a query in an RSC.

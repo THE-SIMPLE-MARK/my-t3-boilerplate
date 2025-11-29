@@ -1,9 +1,9 @@
 import { desc } from "drizzle-orm"
 import { z } from "zod"
-import { db } from "~/lib/api/db"
-import { posts } from "~/lib/api/db/schema"
-import { createTRPCRouter } from "~/lib/api/trpc"
-import { publicProcedure } from "~/lib/api/trpc/procedures/public"
+import { db } from "~/lib/db"
+import { posts } from "~/lib/db/schema"
+import { createTRPCRouter } from "~/lib/trpc"
+import { publicProcedure } from "~/lib/trpc/procedures/public"
 
 export const postRouter = createTRPCRouter({
 	hello: publicProcedure
