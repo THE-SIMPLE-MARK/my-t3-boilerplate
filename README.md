@@ -1,6 +1,8 @@
 # My T3 Boilerplate
 
-This is is a template repository for my new projects. It is basically a copy of the outputs of [Create T3 App](https://create.t3.gg/) with my own file structure, naming conventions, etc.
+This is is a template repository for my new projects.
+
+I used to call this "the outputs of [Create T3 App](https://create.t3.gg/) with minor tweaks", but it has changed so much that it's it's own thing now, soo let's say it's heavily inspired by it.
 
 ## Running & Building
 
