@@ -1,4 +1,4 @@
-# My T3 Boilerplate
+# Create Mark's App Boilerplate
 
 This is is a template repository for my new projects.
 
